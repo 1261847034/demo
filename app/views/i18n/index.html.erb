@@ -1,0 +1,17 @@
+<%= form_tag export_i18n_index_path, method: :post, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag '导入' %>
+<% end %>
+
+<br>
+<%= I18n.t('hello_word') %>
+<br>
+<%= I18n.locale %>
+
+<%= form_tag i18n_index_path, method: :post, multipart: true do %>
+    <% @locales.each do |locale| %>
+        <%= radio_button_tag 'locale', locale, I18n.locale.to_s.eql?(locale) %><%= locale %>
+        <br>
+    <% end %>
+    <%= submit_tag '更新i18n locale' %>
+<% end %>

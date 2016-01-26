@@ -9,22 +9,30 @@ class Api::V1::JwtAuthTokenController < ApplicationController
     render json: {code: -1, message: 'token过期'}
   end
 
-  def jwt_decode_error
-    render json: {code: -1, message: 'token不合法'}
+  def jwt_decode_error(exception)
+    if exception.kind_of?(JWT::ExpiredSignature)
+      render json: {code: -1, message: 'token过期'}
+    else
+      render json: {code: -1, message: 'token不合法'}
+    end
   end
 
   # 创建登陆认证令牌
   def create
     @user = User.first
-    payload = {id: @user.id, email: @user.email, "exp" => 7.days.from_now.to_i}
+    payload = {id: @user.id, email: @user.email, "exp" => 1.seconds.from_now.to_i}
     @jwt = JWT.encode(payload, @user.password_salt)
     render json: {jwt: @jwt}
   end
 
   # 发送重置忘记密码邮件
   def send_reset_password_mail
-    UserWorker.perform_async({method: :reset_password, user_id: User.first.id})
-    render json: {}
+    jid = UserWorker.perform_async({method: :reset_password, user_id: User.first.id})
+    if jid
+      render json: {code: 0}
+    else
+      render json: {code: -1, message: '发送重置密码失败'}
+    end
   end
 
   # 更新密码

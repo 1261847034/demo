@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :i18n do
+    post :export, :update, on: :collection
+  end
+
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :jwt_auth_token do

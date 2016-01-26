@@ -29,6 +29,10 @@ module Demo
     config.i18n.available_locales = [:"zh-CN", :zh, :en]
     config.i18n.default_locale = "zh-CN"
 
+    config.autoload_paths += %W(
+      #{config.root}/app/services
+    )
+
   end
 end
 require 'pp'

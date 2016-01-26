@@ -49,4 +49,11 @@ gem 'jwt'
 gem 'httparty'
 gem 'sinatra'
 gem 'sidekiq'
+gem 'settingslogic'
+
+gem "redis"
+gem "hiredis"
+gem 'cached_key_value_store'
+
+gem 'roo'
 
