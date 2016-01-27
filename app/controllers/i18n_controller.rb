@@ -12,8 +12,14 @@ class I18nController < ApplicationController
   end
 
   def export
-    to_backend if params[:file].present?
-    render nothing: true
+    begin
+      to_backend if params[:file].present?
+    rescue => e
+      Rails.logger.error "exception: #{e.message}"
+      e.backtrace.each { |message| Rails.logger.error "exception: #{message}" }
+    ensure
+      redirect_to i18n_index_path
+    end
   end
 
   private

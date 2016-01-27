@@ -54,6 +54,9 @@ gem 'settingslogic'
 gem "redis"
 gem "hiredis"
 gem 'cached_key_value_store'
-
 gem 'roo'
+
+gem 'simditor'
+gem 'carrierwave'
+gem 'mini_magick'
 

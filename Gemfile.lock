@@ -44,6 +44,11 @@ GEM
     byebug (8.2.1)
     cached_key_value_store (0.1.0)
       activesupport
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     celluloid (0.17.2)
       celluloid-essentials
       celluloid-extras
@@ -106,6 +111,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.99)
+    mini_magick (4.2.10)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
@@ -180,6 +186,7 @@ GEM
       json (~> 1.0)
       redis (~> 3.2, >= 3.2.1)
       redis-namespace (~> 1.5, >= 1.5.2)
+    simditor (2.3.6)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -225,6 +232,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   cached_key_value_store
+  carrierwave
   coffee-rails (~> 4.1.0)
   devise
   hiredis
@@ -232,6 +240,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jwt
+  mini_magick
   mysql2 (~> 0.3.13)
   pry-rails
   rails (= 4.2.3)
@@ -241,6 +250,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   settingslogic
   sidekiq
+  simditor
   sinatra
   spring
   thin

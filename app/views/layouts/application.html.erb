@@ -10,5 +10,13 @@
 
 <%= yield %>
 
+<script>
+  <% %i(notice error).each do |type| %>
+    <% if flash[type].present? %>
+        alert('<%= flash[type] %>');
+    <% end %>
+  <% end %>
+</script>
+
 </body>
 </html>

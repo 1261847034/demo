@@ -13,7 +13,10 @@
 /tmp
 
 .idea/
+
 config/sidekiq.yml
 config/database.yml
 config/secrets.yml
 config/redis.yml
+
+public/uploads/
