@@ -52,4 +52,14 @@ Rails.application.configure do
       enable_starttls_auto: false
   }
 
+  # config.action_controller.asset_host = Proc.new { |source|
+  #   if source =~ /assets/
+  #     'static-assets-cdn.embbnux.com'
+  #   else
+  #     'static-images-cdn.embbnux.com'
+  #   end
+  # }
+
+  config.action_controller.asset_host = 'localhost:3002'
+
 end

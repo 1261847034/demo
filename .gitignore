@@ -20,3 +20,4 @@ config/secrets.yml
 config/redis.yml
 
 public/uploads/
+public/assets/
