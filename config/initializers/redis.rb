@@ -1,3 +1,4 @@
+# redis处理i18n
 I18N_LOCALES = YAML.load_file(Rails.root.join('config', 'locales.yml'))['locales']
 
 module I18n
@@ -16,3 +17,6 @@ end
 $i18n_redis = Redis.new(RedisSettings.i18n)
 I18n.backend = I18n::Backend::CachedKeyValueStore.new($i18n_redis)
 Rails.application.config.i18n.available_locales += I18n.backend.available_locales #I18n::Backend::KeyValue.new($i18n_redis).available_locales
+
+# 使用redis缓存
+$redis_store = ActiveSupport::Cache::RedisStore.new(RedisSettings.cache.deep_symbolize_keys)

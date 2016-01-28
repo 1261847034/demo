@@ -60,3 +60,6 @@ gem 'simditor'
 gem 'carrierwave'
 gem 'mini_magick'
 
+gem 'redis-namespace'
+gem 'redis-rails'
+

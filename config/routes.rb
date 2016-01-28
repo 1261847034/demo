@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     post :upload, on: :collection
   end
 
+  resources :redis_caches
+
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :jwt_auth_token do

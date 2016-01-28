@@ -33,6 +33,9 @@ module Demo
       #{config.root}/app/services
     )
 
+    # 设置 Rails 使用redis缓存的存储方式(RedisStore)
+    redis_config = YAML.load_file(Rails.root.join('config/redis.yml'))[Rails.env] || {}
+    config.cache_store = :redis_store, redis_config['cache'].deep_symbolize_keys
   end
 end
 require 'pp'
