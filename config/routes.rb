@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     post :upload, on: :collection
   end
 
-  resources :redis_caches
+  resources :redis do
+    get :cache, on: :collection
+  end
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do

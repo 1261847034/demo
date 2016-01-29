@@ -1,5 +1,5 @@
-class RedisCachesController < ApplicationController
-  def index
+class RedisController < ApplicationController
+  def cache
     # @articles = Rails.cache.fetch "articles" do
     #   SimditorArticle.all.limit(10).to_a
     # end
