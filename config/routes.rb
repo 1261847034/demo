@@ -20,6 +20,10 @@ Rails.application.routes.draw do
     get :cache, on: :collection
   end
 
+  mount Soulmate::Server, :at => "/sm"
+
+  resources :soulmates
+
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :jwt_auth_token do

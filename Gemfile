@@ -63,3 +63,7 @@ gem 'mini_magick'
 gem 'redis-namespace'
 gem 'redis-rails'
 
+gem 'acts-as-taggable-on', '~> 3.4'
+gem 'soulmate', require: 'soulmate/server'
+gem 'rack-contrib'
+gem 'simple_captcha2', require: 'simple_captcha'

@@ -1,0 +1,2 @@
+class SoulmatesController < ApplicationController
+end
